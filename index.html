@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Mini Snake Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <header class="header">
+      <h1 class="title">🐍 Mini Snake</h1>
+      <div class="header-badges">
+        <span class="badge" id="speedBadge">Speed: 1x</span>
+      </div>
+    </header>
+
+    <div class="scoreboard">
+      <div class="score-card">
+        <span class="label">SCORE</span>
+        <span class="value" id="currentScore">0</span>
+      </div>
+      <div class="score-card">
+        <span class="label">BEST</span>
+        <span class="value" id="highScore">0</span>
+      </div>
+      <div class="score-card">
+        <span class="label">APPLES</span>
+        <span class="value" id="applesCount">0</span>
+      </div>
+    </div>
+
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas" width="400" height="400"></canvas>
+      
+      <!-- Overlay Screen (Start / Pause / Game Over) -->
+      <div class="overlay" id="gameOverlay">
+        <div class="overlay-content">
+          <div class="overlay-icon" id="overlayIcon">🎮</div>
+          <h2 id="overlayTitle">Mini Snake</h2>
+          <p id="overlayMessage">Press Start or hit Spacebar to play</p>
+          <div class="overlay-stats" id="overlayStats" style="display: none;">
+            <div class="stat-item">
+              <span class="stat-label">Final Score:</span>
+              <span class="stat-value" id="finalScoreVal">0</span>
+            </div>
+            <div class="stat-item" id="newHighNotice" style="display: none;">
+              <span class="new-high-badge">🎉 NEW HIGH SCORE!</span>
+            </div>
+          </div>
+          <button id="overlayBtn" class="btn btn-primary">Start Game</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Action Toolbar -->
+    <div class="toolbar">
+      <div class="difficulty-group">
+        <label for="difficultySelect">Mode:</label>
+        <select id="difficultySelect" class="select-input">
+          <option value="easy">Casual</option>
+          <option value="medium" selected>Normal</option>
+          <option value="hard">Insane</option>
+        </select>
+      </div>
+
+      <div class="button-group">
+        <button id="pauseBtn" class="btn btn-icon" title="Pause (Space)">⏸️</button>
+        <button id="muteBtn" class="btn btn-icon" title="Toggle Sound (M)">🔊</button>
+        <button id="restartBtn" class="btn btn-icon" title="Restart (R)">🔄</button>
+      </div>
+    </div>
+
+    <!-- Mobile Virtual Controls -->
+    <div class="mobile-controls">
+      <button class="dpad-btn up" data-dir="ArrowUp" aria-label="Up">▲</button>
+      <div class="dpad-middle">
+        <button class="dpad-btn left" data-dir="ArrowLeft" aria-label="Left">◀</button>
+        <div class="dpad-center"></div>
+        <button class="dpad-btn right" data-dir="ArrowRight" aria-label="Right">▶</button>
+      </div>
+      <button class="dpad-btn down" data-dir="ArrowDown" aria-label="Down">▼</button>
+    </div>
+
+    <footer class="footer">
+      <p>Use <strong>Arrow Keys</strong> or <strong>W A S D</strong> to move &bull; <strong>Space</strong> to pause</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
